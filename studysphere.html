@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="studystyle.css" type="text/css" />
+  <title>StudySphere</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="logo"><img src="logo.svg" /></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="note.html">Notes</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#team-contact-container">Contact Us</a></li>
+    </ul>
+    <div class="signup-container">
+      <div id="authButtons">
+        <a href="login.html" class="signup-btn">Login</a>
+        <a href="signup.html" class="signup-btn" style="margin-left: 10px">Sign Up</a>
+      </div>
+      <div style="display: flex;">
+        <div class="streak-container-nav" id="streakIndicator" style="display: none">
+          <div class="streak-progress-circle" data-weekly-goal="7" data-weekly-progress="0">
+            <!-- Weekly Goal: 7 days -->
+            <div class="streak-inner-circle">
+              <span class="streak-count" id="dailyStreakCount">0</span>
+              <span class="streak-label"></span>
+            </div>
+          </div>
+        </div>
+        <div id="userProfile" style="display: none">
+          <div class="profile-icon" id="profileIcon">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="profile-info">
+              <p><strong id="usernameDisplay"></strong></p>
+              <p id="userEmail"></p>
+            </div>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-btn" id="chatBtn">
+    <img src="logo.svg" alt="Chat Logo">
+  </div>
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chat-header">
+      <div class="header-info">
+        <img src="logo.svg" alt="Chat Logo" id="headerLogo">
+        <div class="header-title">AI Assistant</div>
+      </div>
+      <div class="header-actions">
+        <div class="minimize-btn" id="minimizeBtn">
+          <i class="fas fa-minus"></i>
+        </div>
+        <div class="close-btn" id="closeBtn">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages will be added here dynamically -->
+    </div>
+
+    <!-- Typing indicator -->
+    <div id="typing-indicator" class="typing-indicator" style="display: none;">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <img src="images/logo.svg" alt="Bot Avatar">
+        </div>
+        <div class="typing-indicator-bubble">
+          <div class="typing-indicator-dot"></div>
+          <div class="typing-indicator-dot"></div>
+          <div class="typing-indicator-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message here..." autocomplete="off">
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+  <section class="home-section">
+    <div id="home" class="home-content">
+      <h1>Welcome to StudySphere</h1>
+      <p>Study smart, stay on track, and crush every day!</p>
+      <a href="#services" class="cta-button">Get Started</a>
+    </div>
+  </section>
+  <div id="services" class="box-2">
+    <h2 style="text-align: center; font-weight: 700; font-size: 40px">
+      Our Services
+    </h2>
+    <div class="services">
+      <div class="services-1 clickable-div" onclick="window.location.href='note.html'">
+        <div class="heading">
+          <h2 style="text-align: center">Organized Notes and Lectures</h2>
+        </div>
+        <img src="gettyimages-1197090931-612x612.jpg" alt="chicken" />
+        <p>
+          This tool lets users create, edit, and organize notes for structured studying. Upload PDFs, videos, or links
+          to centralize resources. Quickly find notes using search and filters. Export as PDFs or share with peers for
+          collaborative learning.
+        </p>
+      </div>
+      <div class="services-1 clickable-div" onclick="window.location.href='todos.html'">
+        <div class="heading">
+          <h2 style="text-align: center">Assignments and To-Do list</h2>
+        </div>
+        <img src="do-list-checklist-cupboard-icon-600nw-2480380541.webp" alt="to-do list" />
+        <p>
+          The to-do list helps users manage tasks efficiently with add/edit/delete options. Set deadlines, prioritize
+          tasks, and get reminders for better time management. A drag-and-drop interface allows easy reordering, while
+          progress tracking provides insights into productivity to improve study habits.
+        </p>
+      </div>
+      <div class="services-1 clickable-div" onclick="window.location.href='courses.html'">
+        <div class="heading">
+          <h2 style="text-align: center">Online courses and roadmap</h2>
+        </div>
+        <img src="test.webp" alt="Online courses and roadmap" />
+        <p>
+          Explore top online courses sorted by subject and level. Follow guided learning roadmaps with milestones and
+          progress tracking. Get personalized recommendations based on your goals and past learning. Ideal for exam prep
+          or skill-building.
+        </p>
+      </div>
+      <div class="services-1 clickable-div" onclick="window.location.href='tools.html'">
+        <div class="heading">
+          <h2 style="text-align: center">Online Tools and Resources</h2>
+        </div>
+        <img src="create-infographics.jpg" alt="" />
+        <p>
+          Discover a handpicked collection of essential online tools for academics and personal growth. From study aids
+          to productivity boosters, access the best resources in one place to streamline your learning and daily tasks.
+          Smart recommendations help you find exactly what you need to succeed.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="background-color: #f0f8ff; padding: 10px;">
+    <div class="streak-container" id="streak-container">
+      <h3 style="font-size: x-large; text-align: center; padding-bottom: 10px;">Study Streak</h3>
+
+      <div class="streak-stats">
+        <div class="streak-stat">
+          <div class="streak-label">Current Streak</div>
+          <div class="streak-number" id="current-streak">0</div>
+        </div>
+
+        <div class="streak-stat">
+          <div class="streak-label">Longest Streak</div>
+          <div class="streak-number" id="longest-streak">0</div>
+        </div>
+      </div>
+
+      <div class="streak-calendar"></div>
+
+      <div class="streak-progress-container">
+        <div class="streak-progress-bar">
+          <div class="streak-progress"></div>
+        </div>
+        <div class="streak-progress-text">0% to weekly goal</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (!user) return;
+
+      try {
+        // Get user's timezone
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Fetch and update streak
+        const response = await fetch(
+          `/api/streak?userId=${user.id}&timezone=${encodeURIComponent(
+            timezone
+          )}`
+        );
+        const data = await response.json();
+
+        if (data.success) {
+          updateStreakUI(data.streak);
+
+          // Store updated streak in localStorage
+          const updatedUser = { ...user, streak: data.streak };
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+        }
+      } catch (error) {
+        console.error("Error updating streak:", error);
+      }
+    });
+
+    function updateStreakUI(streakData) {
+      // Update streak counter
+      document.getElementById("current-streak").textContent =
+        streakData.current;
+      document.getElementById("longest-streak").textContent =
+        streakData.longest;
+
+      // Update calendar visualization
+      const calendar = document.querySelector(".streak-calendar");
+      calendar.innerHTML = "";
+
+      const today = new Date();
+      const startDate = new Date(today);
+      startDate.setDate(today.getDate() - 6);
+
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(startDate);
+        day.setDate(startDate.getDate() + i);
+
+        const dayElement = document.createElement("div");
+        dayElement.className = "calendar-day";
+
+        if (i < streakData.current) {
+          dayElement.classList.add("active");
+        }
+
+        dayElement.innerHTML = `
+          <div class="day-name">${day.toLocaleDateString("en-US", {
+          weekday: "short",
+        })}</div>
+          <div class="day-date">${day.getDate()}</div>
+        `;
+
+        calendar.appendChild(dayElement);
+      }
+
+      // Update progress bar
+      const progress = Math.min(100, (streakData.current / 7) * 100);
+      document.querySelector(".streak-progress").style.width = `${progress}%`;
+      document.querySelector(
+        ".streak-progress-text"
+      ).textContent = `${Math.round(progress)}% to weekly goal`;
+    }
+  </script>
+
+  <div id="feedback" style="background-color: #f0f8ff; padding: 10px; text-align: center;">
+    <div id="feedbackForm" class="feedback-container">
+      <h3>Rate Your Experience</h3>
+      <div class="star-rating">
+        <span class="star" data-rating="1">☆</span>
+        <span class="star" data-rating="2">☆</span>
+        <span class="star" data-rating="3">☆</span>
+        <span class="star" data-rating="4">☆</span>
+        <span class="star" data-rating="5">☆</span>
+      </div>
+      <textarea id="feedbackText" placeholder="Optional: Share your feedback..."></textarea>
+      <button id="submitFeedback" class="btnf">Submit Feedback</button>
+    </div>
+  </div>
+  <div style="background-color: #f0f8ff; padding: 10px;">
+    <div class="team-contact-container" id="team-contact-container">
+      <h2 style="text-align: center; margin-bottom: 25px; color: white">
+        Meet the Team & Get in Touch
+      </h2>
+      <div class="team-grid">
+        <div class="team-member-card">
+          <h3>Piyush</h3>
+          <div class="member-contact-links">
+            <a href="mailto:piyush.agrawal2023@vitstudent.ac.in" title="Email Piyush" aria-label="Email Piyush">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/PiyushAgrawal626" target="_blank" rel="noopener noreferrer"
+              title="Piyush's GitHub" aria-label="Piyush's GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="www.linkedin.com/in/piyush-agrawal-74336528b" target="_blank" rel="noopener noreferrer"
+              title="Piyush's LinkedIn" aria-label="Piyush's LinkedIn Profile">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="tel:+919479249042" title="Call Piyush" aria-label="Call Piyush">
+              <i class="fas fa-phone-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="team-member-card">
+          <h3>Mayank</h3>
+          <div class="member-contact-links">
+            <a href="mailto:mayank.2023@vitstudent.ac.in" title="Email Mayank" aria-label="Email Mayank">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/mayank-github-handle" target="_blank" rel="noopener noreferrer"
+              title="Mayank's GitHub" aria-label="Mayank's GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mayank-kumar-22b9b3287/" target="_blank" rel="noopener noreferrer"
+              title="Mayank's LinkedIn" aria-label="Mayank's LinkedIn Profile">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="tel:+916280810134" title="Call Mayank" aria-label="Call Mayank">
+              <i class="fas fa-phone-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="team-member-card">
+          <h3>Owais</h3>
+          <div class="member-contact-links">
+            <a href="mailto:mohammaad.owais2023@vitstudent.ac.in" title="Email Owais" aria-label="Email Owais">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/Preygle" target="_blank" rel="noopener noreferrer" title="Owais' GitHub"
+              aria-label="Owais' GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/owais-linkedin-profile" target="_blank" rel="noopener noreferrer"
+              title="Owais' LinkedIn" aria-label="Owais' LinkedIn Profile">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="tel:+917991503923" title="Call Owais" aria-label="Call Owais">
+              <i class="fas fa-phone-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-6">
+    <div class="para1">
+      <p>Condition of use Privacy Notice Your ads privacy choices.</p>
+      <p style="margin-left: 30px">
+        © 1996-2025, Amazon.com, Inc. or its affiliates
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = JSON.parse(localStorage.getItem("user"));
+      const authButtons = document.getElementById("authButtons");
+      const userProfile = document.getElementById("userProfile");
+      const usernameDisplay = document.getElementById("usernameDisplay");
+      const userEmail = document.getElementById("userEmail");
+      const welcomeHeading = document.querySelector(".home-content h1");
+      const profileIcon = document.getElementById("profileIcon");
+      const profileDropdown = document.getElementById("profileDropdown");
+
+
+      const streakIndicator = document.getElementById("streakIndicator");
+      const dailyStreakCountEl = document.getElementById("dailyStreakCount");
+      const streakProgressCircleEl = document.querySelector(".streak-progress-circle");
+      const streakIndicatorNav = document.getElementById("streakIndicator"); // Navbar element ID
+      const streakTargetSection = document.getElementById('streak-container');
+
+      const stars = document.querySelectorAll('.star');
+      const feedbackText = document.getElementById('feedbackText');
+      const submitBtn = document.getElementById('submitFeedback');
+      let selectedRating = 0;
+      async function updateUserStreak() {
+        if (!user || !user.id) {
+          console.log("No user logged in for streak update.");
+          return;
+        }
+
+        // Get user's timezone
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+
+        try {
+          // Fetch DAILY streak data from your backend
+          const response = await fetch(`/api/streak?userId=${user.id}&timezone=${timezone}`);
+          if (!response.ok) {
+            throw new Error(`Streak API Error: ${response.statusText}`);
+          }
+          const data = await response.json();
+
+          if (data.success && data.streak) {
+            const dailyStreak = data.streak.current || 0;
+
+            // --- !!! SIMULATION FOR WEEKLY PROGRESS !!! ---
+            // TODO: Replace this simulation with actual data from your backend
+            // You'll need to modify your backend (server.js) and User schema
+            // to store and retrieve weekly progress (e.g., days active this week).
+            const weeklyGoal = parseInt(streakProgressCircleEl.getAttribute('data-weekly-goal')) || 7;
+            // Example: Simulate progress based on daily streak (very basic)
+            const currentWeeklyProgress = Math.min(dailyStreak, weeklyGoal);
+            // --- !!! END SIMULATION !!! ---
+
+
+            // Update the display
+            updateStreakDisplay(dailyStreak, currentWeeklyProgress, weeklyGoal);
+
+            // Show the streak indicator
+            if (streakIndicator) {
+              streakIndicator.style.display = 'flex'; // Or 'block' if preferred
+            }
+
+          } else {
+            console.error("Failed to get streak data:", data.message);
+            // Optionally hide or show default state for streak indicator
+            if (streakIndicator) streakIndicator.style.display = 'none';
+          }
+        } catch (error) {
+          console.error("Error fetching or processing streak:", error);
+          if (streakIndicator) streakIndicator.style.display = 'none'; // Hide on error
+        }
+      }
+
+      // --- NEW: Function to update the visual elements ---
+      function updateStreakDisplay(dailyCount, weeklyProgress, weeklyGoal) {
+        if (!dailyStreakCountEl || !streakProgressCircleEl) return;
+
+        // Update daily streak number
+        dailyStreakCountEl.textContent = dailyCount;
+
+        // Calculate weekly percentage
+        const goal = weeklyGoal > 0 ? weeklyGoal : 1; // Avoid division by zero
+        const progress = Math.max(0, Math.min(weeklyProgress, goal)); // Clamp progress
+        const percentage = (progress / goal) * 100;
+
+        // Update the data attribute (optional, but good practice)
+        streakProgressCircleEl.setAttribute('data-weekly-progress', progress);
+
+        // Update the conic gradient background for the progress ring
+        const progressColor = "#007bff";  // Green for progress
+        const backgroundColor = "black"; // Background for the unfilled part
+        streakProgressCircleEl.style.background = `
+      conic-gradient(
+        ${progressColor} ${percentage}%,
+        ${backgroundColor} ${percentage}%
+      )
+    `;
+      }
+      if (user) {
+        if (authButtons) authButtons.style.display = "none";
+        if (userProfile) userProfile.style.display = "flex"; // Assuming flex display for profile
+        if (usernameDisplay) usernameDisplay.textContent = user.username;
+        if (userEmail) userEmail.textContent = user.email;
+
+        if (welcomeHeading) {
+          welcomeHeading.innerHTML = `Welcome back, <span class="welcome-user">${user.username}</span>!`;
+        }
+
+        // --- Call the function to fetch and update streak ---
+        updateUserStreak();
+        // --- End Call ---
+
+      } else {
+        // Ensure elements are hidden if no user
+        if (streakIndicator) streakIndicator.style.display = 'none';
+        if (userProfile) userProfile.style.display = 'none';
+        if (authButtons) authButtons.style.display = 'block'; // Or 'flex', etc.
+      }
+
+      // Toggle profile dropdown
+      profileIcon.addEventListener("click", function (e) {
+        e.stopPropagation();
+        profileDropdown.classList.toggle("show");
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener("click", function () {
+        profileDropdown.classList.remove("show");
+      });
+
+      // Logout
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", function () {
+          localStorage.removeItem("user");
+          window.location.href = "login.html";
+        });
+
+
+      if (streakIndicatorNav && streakTargetSection) {
+        streakIndicatorNav.addEventListener('click', function (event) {
+          console.log("Navbar streak indicator clicked, scrolling to target section..."); // Debug log
+          streakTargetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+        // Add cursor pointer for better UX
+        streakIndicatorNav.style.cursor = 'pointer';
+      } else {
+        if (!streakIndicatorNav) console.error("Navbar streak indicator (ID 'streakIndicator') not found.");
+        if (!streakTargetSection) console.error("Target streak section (ID 'streak-container') not found.");
+      }
+
+      // Star rating selection
+      stars.forEach(star => {
+        star.addEventListener('click', function () {
+          const rating = parseInt(this.getAttribute('data-rating'));
+          selectedRating = rating;
+
+          // Update star display
+          stars.forEach((s, i) => {
+            s.textContent = i < rating ? '★' : '☆';
+            s.classList.toggle('active', i < rating);
+          });
+        });
+      });
+
+      // Submit feedback
+      submitBtn.addEventListener('click', async function () {
+        if (!selectedRating) {
+          alert('Please select a rating');
+          return;
+        }
+
+        if (!user || !user.id) {
+          alert('Please log in to submit feedback');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        try {
+          const response = await fetch('http://localhost:5000/api/feedback', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              userId: user.id,
+              rating: selectedRating,
+              text: feedbackText.value
+            })
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.message || 'Failed to submit feedback');
+          }
+
+          alert('Thank you for your feedback!');
+          feedbackText.value = '';
+          // Reset stars
+          stars.forEach(star => {
+            star.textContent = '☆';
+            star.classList.remove('active');
+          });
+          selectedRating = 0;
+
+        } catch (error) {
+          console.error('Feedback submission error:', error);
+          alert(`Error: ${error.message}`);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Feedback';
+        }
+      });
+
+      const sections = document.querySelectorAll("div[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      function highlightActiveSection() {
+        let currentSection = "";
+        const scrollY = window.scrollY;
+        const offsetFromTop = window.innerHeight * 0.95;
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (
+            scrollY >= sectionTop - offsetFromTop &&
+            scrollY < sectionTop + sectionHeight - offsetFromTop
+          ) {
+            currentSection = section.getAttribute("id");
+          }
+        });
+
+        if (
+          !currentSection &&
+          sections.length > 0 &&
+          scrollY < sections[0].offsetTop
+        ) {
+          currentSection = sections[0].getAttribute("id");
+        } else if (!currentSection && sections.length > 0) {
+          const lastSection = sections[sections.length - 1];
+          if (scrollY >= lastSection.offsetTop - offsetFromTop) {
+            currentSection = lastSection.getAttribute("id");
+          }
+        }
+
+        navLinks.forEach((link) => link.classList.remove("active"));
+
+        if (currentSection) {
+          const activeLink = document.querySelector(
+            `.nav-links a[href="#${currentSection}"]`
+          );
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
+        } else {
+          const homeLink = document.querySelector(
+            '.nav-links a[href="#home"]'
+          );
+          if (homeLink) homeLink.classList.add("active");
+        }
+      }
+
+      window.addEventListener("scroll", highlightActiveSection);
+      highlightActiveSection();
+
+
+      const chatBtn = document.getElementById('chatBtn');
+      const chatbotContainer = document.getElementById('chatbotContainer');
+      const minimizeBtn = document.getElementById('minimizeBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      const chatMessages = document.getElementById('chatMessages');
+      const userInput = document.getElementById('userInput');
+      const sendBtn = document.getElementById('sendBtn');
+      const typingIndicator = document.getElementById('typing-indicator');
+
+      // Generate a unique conversation ID
+      const conversationId = 'conv-' + Date.now();
+      let isMinimized = false;
+
+      // Welcome message
+      setTimeout(() => {
+        addMessage("Hello! How can I help you today?", false);
+      }, 500);
+
+      // Toggle chatbot visibility when clicking the chat button
+      chatBtn.addEventListener('click', function () {
+        if (isMinimized) {
+          chatbotContainer.classList.remove('minimized');
+          isMinimized = false;
+        } else {
+          chatbotContainer.classList.toggle('active');
+        }
+      });
+
+      // Minimize chatbot
+      minimizeBtn.addEventListener('click', function () {
+        chatbotContainer.classList.add('minimized');
+        isMinimized = true;
+      });
+
+      // Close chatbot
+      closeBtn.addEventListener('click', function () {
+        chatbotContainer.classList.remove('active');
+      });
+
+      // Send message when clicking the send button
+      sendBtn.addEventListener('click', sendMessage);
+
+      // Send message when pressing Enter
+      userInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      function sendMessage() {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        // Add user message to chat
+        addMessage(message, true);
+
+        // Clear input
+        userInput.value = '';
+
+        // Show typing indicator
+        typingIndicator.style.display = 'block';
+
+        // Send to server (CHANGED to port 5001 like your original)
+        fetch('http://localhost:5001/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            prompt: message,
+            conversation_id: conversationId
+          })
+        })
+          .then(response => {
+            if (!response.ok) {
+              // Try to get more specific error from Flask response body
+              let errorMsg = `HTTP error! status: ${response.status}`;
+              try {
+                const errorData = response.json();
+                errorMsg += ` - ${errorData.response || response.statusText}`;
+              } catch (e) {
+                errorMsg += ` - ${response.statusText}`;
+              }
+              throw new Error(errorMsg);
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Hide typing indicator
+            typingIndicator.style.display = 'none';
+
+            // Add bot response to chat
+            if (data.response) {
+              addMessage(data.response, false);
+
+              // Log raw response for debugging
+              if (data.raw_response) {
+                console.log("Raw API response:", data.raw_response);
+              }
+            } else {
+              addMessage("Sorry, I couldn't process your request.", false);
+            }
+          })
+          .catch(error => {
+            // Hide typing indicator
+            typingIndicator.style.display = 'none';
+
+            console.error('Error:', error);
+            addMessage(`Sorry, there was an error connecting to the server. (${error.message})`, false);
+          });
+      }
+
+      function addMessage(content, isUser) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+
+        const messageContent = document.createElement('div');
+        messageContent.classList.add('message-content');
+        messageContent.textContent = content;
+
+        const messageAvatar = document.createElement('div');
+        messageAvatar.classList.add('message-avatar');
+
+        if (!isUser) {
+          const avatarImg = document.createElement('img');
+          // Changed to match your original path format
+          avatarImg.src = "/static/images/logo.svg";
+          avatarImg.alt = 'Bot Avatar';
+          avatarImg.style.width = '40px';  // Increased from 32px
+          avatarImg.style.height = '40px';
+          messageAvatar.appendChild(avatarImg);
+        }
+
+        messageDiv.appendChild(messageAvatar);
+        messageDiv.appendChild(messageContent);
+
+        chatMessages.appendChild(messageDiv);
+
+        // Scroll to the bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+    });
+  </script>
+</body>
+
+</html>

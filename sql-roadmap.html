@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MySQL Roadmap Timeline</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #222;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #f39c12;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-event {
+      padding: 20px 30px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      right: -9px;
+      background-color: #fff;
+      border: 4px solid #f39c12;
+      top: 30px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .timeline-event h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #0d6efd;
+    }
+
+    .timeline-event ul {
+      padding-left: 20px;
+    }
+
+    .timeline-event li {
+      margin: 8px 0;
+      list-style-type: disc;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0d6efd;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #063f93;
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 30px;
+      }
+      .timeline-event {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-event::before {
+        left: 18px;
+      }
+      .left, .right {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>MySQL Roadmap Timeline</h1>
+
+<div class="timeline">
+
+  <div class="timeline-event left">
+    <h2>🐬 Basics & Setup</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=oPV2sjMG53U" target="_blank">MySQL Tutorial for Beginners (Intro + Install)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=9LQ9rGoGfYQ" target="_blank">Create a DATABASE</a></li>
+      <li><a href="https://www.youtube.com/watch?v=XfrgCK6BX5w" target="_blank">Create a TABLE</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Cxilfg-M158" target="_blank">INSERT Rows</a></li>
+      <li><a href="https://www.youtube.com/watch?v=kUDznItqKbI" target="_blank">SELECT Data</a></li>
+      <li><a href="https://www.youtube.com/watch?v=OB2leB2iZ6U" target="_blank">UPDATE & DELETE</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📝 Transactions & Constraints</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=GOQVlrQohtM" target="_blank">AUTOCOMMIT, COMMIT, ROLLBACK</a></li>
+      <li><a href="https://www.youtube.com/watch?v=YEGM_S8mQEI" target="_blank">CURRENT_DATE() & CURRENT_TIME()</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Of_-2pBeL0g" target="_blank">UNIQUE Constraint</a></li>
+      <li><a href="https://www.youtube.com/watch?v=unzHhq82mKU" target="_blank">NOT NULL Constraint</a></li>
+      <li><a href="https://www.youtube.com/watch?v=EeG2boJCXbc" target="_blank">CHECK Constraint</a></li>
+      <li><a href="https://www.youtube.com/watch?v=f4DEKHc9wLk" target="_blank">DEFAULT Constraint</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>🔑 Keys & Relationships</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=620DzFVz41o" target="_blank">PRIMARY KEYS</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ALht4W2QxqY" target="_blank">AUTO_INCREMENT</a></li>
+      <li><a href="https://www.youtube.com/watch?v=rFssfx37UJw" target="_blank">FOREIGN KEYS</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>🔗 Joins, Functions & Operators</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=G3lJAxg1cy8" target="_blank">JOINS (INNER, LEFT, RIGHT)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=9HXJUGT-06w" target="_blank">Functions in MySQL</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lScJW5Qz_5k" target="_blank">Logical Operators</a></li>
+      <li><a href="https://www.youtube.com/watch?v=T11d2ScMtk8" target="_blank">Wildcards</a></li>
+      <li><a href="https://www.youtube.com/watch?v=R-5F3BF8IeY" target="_blank">ORDER BY</a></li>
+      <li><a href="https://www.youtube.com/watch?v=q-kZ8Rq58MY" target="_blank">LIMIT Clause</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>🧰 Advanced Queries</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=su-fxrvKTCk" target="_blank">UNIONS</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lweF--_3Pk8" target="_blank">SELF JOINS</a></li>
+      <li><a href="https://www.youtube.com/watch?v=wciubfRhvtM" target="_blank">VIEWS</a></li>
+      <li><a href="https://www.youtube.com/watch?v=t0grczCICMk" target="_blank">INDEXES</a></li>
+      <li><a href="https://www.youtube.com/watch?v=i5acg3Hvu6g" target="_blank">SUBQUERIES</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📊 Grouping & Aggregation</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=FztbYXeOEQ4" target="_blank">GROUP BY</a></li>
+      <li><a href="https://www.youtube.com/watch?v=6FwQBS3jV_I" target="_blank">ROLLUP</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>⚙️ Data Integrity & Procedures</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=vANfY96ccOY" target="_blank">ON DELETE</a></li>
+      <li><a href="https://www.youtube.com/watch?v=oagHZwY9JJY" target="_blank">STORED PROCEDURES</a></li>
+      <li><a href="https://www.youtube.com/watch?v=jVbj72YO-8s" target="_blank">TRIGGERS</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

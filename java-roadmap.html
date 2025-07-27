@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Java + DSA Roadmap Timeline</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #222;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    /* Vertical line */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #f39c12;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-event {
+      padding: 20px 30px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    /* Circles on the timeline */
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      right: -9px;
+      background-color: #fff;
+      border: 4px solid #f39c12;
+      top: 30px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Left-aligned events */
+    .left {
+      left: 0;
+    }
+
+    /* Right-aligned events */
+    .right {
+      left: 50%;
+    }
+
+    .timeline-event h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #007bff;
+    }
+
+    .timeline-event ul {
+      padding-left: 20px;
+    }
+
+    .timeline-event li {
+      margin: 8px 0;
+      list-style-type: disc;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* Media queries for mobile */
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 30px;
+      }
+      .timeline-event {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-event::before {
+        left: 18px;
+      }
+      .left, .right {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Java + DSA Roadmap Timeline</h1>
+
+<div class="timeline">
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 1: Core Java Basics</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=yRpLlJmRo2w" target="_blank">Introduction to Java</a></li>
+      <li><a href="https://www.youtube.com/watch?v=I5srDu75h_M" target="_blank">Conditional Statements</a></li>
+      <li><a href="https://www.youtube.com/watch?v=0r1SfRoLuzU" target="_blank">Loops in Java</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 2: Patterns & Methods</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=GjHNGM7KN3w" target="_blank">Basic Patterns</a></li>
+      <li><a href="https://www.youtube.com/watch?v=qcSz4ef9UHA" target="_blank">Functions & Methods</a></li>
+      <li><a href="https://www.youtube.com/watch?v=pFPZ83mgH00" target="_blank">Practice Questions</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 3: Bit Manipulation & Strings</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=OSoO8eCEEC8" target="_blank">Bit Manipulation</a></li>
+      <li><a href="https://www.youtube.com/watch?v=vCRD36bG8xQ" target="_blank">Strings</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 4: Time Complexity & Arrays</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=bQssdSrSGNE" target="_blank">Time & Space Complexity</a></li>
+      <li><a href="https://www.youtube.com/watch?v=NTHVTY6w2Co" target="_blank">Arrays</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 5: Sorting & Recursion</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=PkJIc5tBRUE" target="_blank">Sorting Basics</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5Boqfjissv0" target="_blank">Recursion Basics</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 6: Backtracking & Advanced Sorting</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=bRs6E_SL2Tk" target="_blank">N-Queens Problem</a></li>
+      <li><a href="https://www.youtube.com/watch?v=unxAnJBy12Q" target="_blank">Merge Sort</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 7: OOP & Linked Lists</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=bSrm9RXwBaI" target="_blank">OOP Concepts</a></li>
+      <li><a href="https://www.youtube.com/watch?v=oAja8-Ulz6o" target="_blank">Linked List Intro</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 8: Stacks, Queues & Trees</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=7m1DMYAbdiY" target="_blank">Stacks</a></li>
+      <li><a href="https://www.youtube.com/watch?v=-DzowlcaUmE" target="_blank">Binary Tree</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 9: Hashing, Trie & Graphs</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=WeF3_nk-UqY" target="_blank">HashMap</a></li>
+      <li><a href="https://www.youtube.com/watch?v=m9zawMC6QAI" target="_blank">Trie</a></li>
+      <li><a href="https://www.youtube.com/watch?v=59fUtYYz7ZU" target="_blank">Graphs</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

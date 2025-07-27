@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Linux Commands Roadmap Timeline</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #222;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    /* Vertical line */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #f39c12;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-event {
+      padding: 20px 30px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    /* Circles on the timeline */
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      right: -9px;
+      background-color: #fff;
+      border: 4px solid #f39c12;
+      top: 30px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Left-aligned events */
+    .left {
+      left: 0;
+    }
+
+    /* Right-aligned events */
+    .right {
+      left: 50%;
+    }
+
+    .timeline-event h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #007bff;
+    }
+
+    .timeline-event ul {
+      padding-left: 20px;
+    }
+
+    .timeline-event li {
+      margin: 8px 0;
+      list-style-type: disc;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* Media queries for mobile */
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 30px;
+      }
+      .timeline-event {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-event::before {
+        left: 18px;
+      }
+      .left, .right {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Linux Commands Roadmap Timeline</h1>
+
+<div class="timeline">
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 1: Basic Linux Commands</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=lvSoxOMg5_c" target="_blank">Introduction to Linux Commands</a></li>
+      <li><a href="https://www.youtube.com/watch?v=MxDvzSTl-xI" target="_blank">Setting up a Cloud Instance</a></li>
+      <li><a href="https://www.youtube.com/watch?v=yT3RXGdoX5E" target="_blank">Setting up a Virtual Machine</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 2: File System & Navigation</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=MnY0K-3_Fjk" target="_blank">Navigating the Filesystem</a></li>
+      <li><a href="https://www.youtube.com/watch?v=T20jXu7rDCA" target="_blank">Basic File Editing</a></li>
+      <li><a href="https://www.youtube.com/watch?v=cSBYvSA9rDM" target="_blank">Moving and Renaming Files</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 3: User & Permission Management</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=esNITi0RkPE" target="_blank">The Bash Configuration File</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ehKAIWJWI8Y" target="_blank">Command Aliases</a></li>
+      <li><a href="https://www.youtube.com/watch?v=T269zebUSj8" target="_blank">Understanding Permissions</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 4: Package Management & System Resources</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=yxc2ntmH9xY" target="_blank">Intro to Package Management</a></li>
+      <li><a href="https://www.youtube.com/watch?v=ZhW6mzzyqlM" target="_blank">Managing systemd Units</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Ei276TjyxCA" target="_blank">Viewing Logs</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 5: Advanced File Management</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=U7ODlrzF41s" target="_blank">Bash History</a></li>
+      <li><a href="https://www.youtube.com/watch?v=NUjpOLlYv7Q" target="_blank">Output Redirection</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RBKXY14VK8c" target="_blank">Streams</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event right">
+    <h2>📖 Phase 6: Networking & Remote Management</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=qtcRpEHHuJI" target="_blank">Variables in Bash</a></li>
+      <li><a href="https://www.youtube.com/watch?v=zmlNuMKJSkc" target="_blank">The Find Command</a></li>
+      <li><a href="https://www.youtube.com/watch?v=-mvcOpMBlfs" target="_blank">Package Management on Fedora & CentOS</a></li>
+    </ul>
+  </div>
+
+  <div class="timeline-event left">
+    <h2>📖 Phase 7: Remote File Management</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=7OQYlLh0srY" target="_blank">Remote Management with OpenSSH</a></li>
+      <li><a href="https://www.youtube.com/watch?v=gGe1cNgfHwE" target="_blank">Transferring Files with scp</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lwQIZzoqJTU" target="_blank">Transferring Files with rsync</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

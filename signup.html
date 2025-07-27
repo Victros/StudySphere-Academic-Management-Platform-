@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySphere - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        button {
+            background: #f39c12;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #e67e22;
+        }
+
+        .login-link {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .login-link a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <div id="usernameError" class="error"></div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password (min 6 characters)</label>
+                <input type="password" id="password" name="password" required minlength="6">
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="login.html">Log in</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll('.error').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+
+            const formData = {
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim().toLowerCase(),
+                phone: document.getElementById('phone').value.trim(),
+                password: document.getElementById('password').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Store user data and redirect to login
+                    alert('Account created successfully! Please login.');
+                    window.location.href = 'login.html';
+                } else {
+                    if (data.field) {
+                        const errorElement = document.getElementById(`${data.field}Error`);
+                        errorElement.textContent = data.message;
+                        errorElement.style.display = 'block';
+                        document.getElementById(data.field).style.borderColor = 'red';
+                    } else {
+                        alert(data.message || 'Signup failed');
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during signup');
+            }
+        });
+    </script>
+</body>
+
+</html>

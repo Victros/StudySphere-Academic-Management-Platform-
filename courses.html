@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySphere - Courses & Roadmaps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background-color: #2c3e50;
+            justify-content: space-between;
+            padding: 15px 30px;
+        }
+
+        .logo img {
+            width: 80px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        .nav-links a.active {
+            color: #f39c12;
+            font-weight: bold;
+            border-bottom: 2px solid #f39c12;
+        }
+
+        .signup-btn {
+            background-color: #f39c12;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-left: auto;
+        }
+
+        .signup-btn:hover {
+            background-color: #e67e22;
+        }
+
+        .courses-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f39c12;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            /* Added */
+            flex-direction: column;
+            /* Added */
+            height: 100%;
+            /* Ensures equal height */
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            /* Added for better control */
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Changed from cover to contain for consistent display */
+            object-position: center;
+            /* Ensures centered alignment */
+            background-color: #f8f9fa;
+            /* Adds a light background for transparent images */
+            padding: 20px;
+            /* Gives some breathing room around the image */
+            box-sizing: border-box;
+            /* Ensures padding is included in dimensions */
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .course-content {
+            padding: 20px;
+            flex-grow: 1;
+            /* Makes content fill remaining space */
+            display: flex;
+            /* Added */
+            flex-direction: column;
+            /* Added */
+        }
+
+        .course-category {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .course-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .course-meta {
+            margin-top: auto;
+            /* Pushes meta to bottom */
+        }
+
+        .course-duration {
+            color: #7f8c8d;
+        }
+
+        .enroll-btn {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            /* Added to remove underline */
+            display: inline-block;
+            /* Added for proper button sizing */
+            text-align: center;
+            /* Added for text alignment */
+        }
+
+        .enroll-btn:hover {
+            background: #f39c12;
+            color: white;
+            /* Ensure text stays white on hover */
+        }
+
+        .roadmap-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .roadmap-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .roadmap-title i {
+            margin-right: 10px;
+            color: #f39c12;
+        }
+
+        .roadmap-steps {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .roadmap-steps li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .roadmap-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .roadmap-steps li i {
+            margin-right: 10px;
+            color: #f39c12;
+        }
+
+        .view-roadmap {
+            display: inline-block;
+            margin-top: 15px;
+            color: #f39c12;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .view-roadmap:hover {
+            color: #e67e22;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background-color: #2c3e50;
+            justify-content: space-between;
+            padding: 15px 30px;
+        }
+
+        .welcome-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .welcome-message {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .welcome-message span {
+            color: #f39c12;
+        }
+
+        .profile-icon {
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-left: auto;
+        }
+
+        .profile-icon:hover {
+            color: #f39c12;
+            transform: scale(1.1);
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            right: 30px;
+            top: 70px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            width: 200px;
+            display: none;
+            z-index: 1001;
+        }
+
+        .profile-dropdown.show {
+            display: block;
+        }
+
+        .profile-info {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .profile-info p:first-child {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logout-btn {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #e67e22;
+        }
+
+        /* Courses Slider Styles */
+        .courses-slider {
+            position: relative;
+            margin: 40px auto;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+
+        .courses-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 30px;
+            padding: 10px 0;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44, 62, 80, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background: #f39c12;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Hide extra courses initially */
+        .course-card {
+            min-width: calc(33.333% - 20px);
+            flex: 0 0 calc(33.333% - 20px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo"><img src="logo.svg"></div>
+
+        <div class="welcome-container">
+            <div id="userWelcome" class="welcome-message" style="display: none;">
+                Welcome, <span id="usernameDisplay"></span>
+            </div>
+        </div>
+
+        <div class="signup-container">
+            <div id="authButtons">
+                <a href="login.html" class="signup-btn">Login</a>
+                <a href="signup.html" class="signup-btn" style="margin-left: 10px;">Sign Up</a>
+            </div>
+            <div id="userProfile" style="display: none;">
+                <div class="profile-icon" id="profileIcon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="profile-info">
+                        <p><strong id="dropdownUsername"></strong></p>
+                        <p id="dropdownEmail"></p>
+                    </div>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="courses-container">
+        <div class="page-header">
+            <h1>Enhance Your Learning Journey</h1>
+            <p>Discover structured roadmaps and hand-picked courses to accelerate your academic and professional growth
+            </p>
+        </div>
+
+        <!-- Add this inside your courses-container div, after the page-header -->
+        <h2 class="section-title">Featured Online Courses</h2>
+        <div class="courses-slider">
+            <button class="slider-arrow left-arrow">&larr;</button>
+            <div class="courses-slides">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="01-Modern-JavaScript.webp" alt="JavaScript Course">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Web Development</span>
+                        <h3 class="course-title">Modern JavaScript Mastery</h3>
+                        <p class="course-description">Master ES6+ features, async programming and modern frameworks.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">10 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="React.png" alt="React Course">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Frontend</span>
+                        <h3 class="course-title">React JS Complete Guide</h3>
+                        <p class="course-description">Build interactive UIs with React hooks, context and router.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">8 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="nodejs.webp" alt="Node.js Course">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Backend</span>
+                        <h3 class="course-title">Node.js Crash Course</h3>
+                        <p class="course-description">Learn to build scalable server-side applications with Node.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">6 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="Data-structures-and-algorithms-new.webp" alt="DSA Course">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Computer Science</span>
+                        <h3 class="course-title">Data Structures & Algorithms</h3>
+                        <p class="course-description">Master essential DSA concepts for coding interviews.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">12 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="what-is-machine-learning-and-machine-learning-techniques-67bc2a273a4f0-e1740981449660.webp" alt="Machine Learning">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">AI/ML</span>
+                        <h3 class="course-title">Machine Learning Fundamentals</h3>
+                        <p class="course-description">Introduction to ML algorithms with Python implementations.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">10 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PL9ooVrP1hQOHUfd-g8GUpKI3hHOwM_9Dn"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 6 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="images.png" alt="DevOps">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">DevOps</span>
+                        <h3 class="course-title">DevOps for Beginners</h3>
+                        <p class="course-description">Learn Docker, Kubernetes, CI/CD pipelines and more.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">8 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 7 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="app-development-banner_33099-1720.avif" alt="Android Development">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Mobile</span>
+                        <h3 class="course-title">Android Development</h3>
+                        <p class="course-description">Build Android apps with Kotlin and Jetpack components.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">10 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PLRKyZvuMYSIMW3-rSOGCkPlO1z_IYJy3G"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 8 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="360_F_245636933_kY23ohGptK5t6n8wGSXIgLgVXWeHJRct.jpg" alt="Cybersecurity">
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Security</span>
+                        <h3 class="course-title">Cybersecurity Essentials</h3>
+                        <p class="course-description">Learn ethical hacking, penetration testing and security.</p>
+                        <div class="course-meta">
+                            <span class="course-duration">8 Weeks</span>
+                            <a href="https://www.youtube.com/playlist?list=PLIhvC56v63IJIujb5cyE13oLuyORZpdkL"
+                                class="enroll-btn" target="_blank">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-arrow right-arrow">&rarr;</button>
+        </div>
+        <h2 class="section-title">Study Roadmaps</h2>
+        <div class="courses-grid">
+            <!-- Java Roadmap -->
+            <div class="roadmap-card">
+                <h3 class="roadmap-title"><i class="fab fa-java"></i> Java Developer Roadmap</h3>
+                <ul class="roadmap-steps">
+                    <li><i class="fas fa-check-circle"></i> Core Java Basics - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Patterns & Methods - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Bit Manipulation & Strings - 1 week</li>
+                    <li><i class="fas fa-check-circle"></i> Time Complexity & Arrays - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Sorting & Recursion - 4 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Backtracking & Advanced Sorting - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> OOP & Linked Lists - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Stacks, Queues & Trees - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Hashing, Trie & Graphs - 3 weeks</li>
+                </ul>
+                <a href="java-roadmap.html" class="view-roadmap">View Full Roadmap →</a>
+            </div>
+
+            <!-- Linux Roadmap -->
+            <div class="roadmap-card">
+                <h3 class="roadmap-title"><i class="fab fa-linux"></i> Linux Administration Path</h3>
+                <ul class="roadmap-steps">
+                    <li><i class="fas fa-check-circle"></i> Basic Linux Commands - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> File System & Navigation - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> User & Permission Management - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced File Management - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Networking & Remote Management - 3 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Remote File Management - 4 weeks</li>
+                </ul>
+                <a href="linux-roadmap.html" class="view-roadmap">View Full Roadmap →</a>
+            </div>
+
+            <!-- SQL Roadmap -->
+            <div class="roadmap-card">
+                <h3 class="roadmap-title"><i class="fas fa-database"></i> SQL Mastery Program</h3>
+                <ul class="roadmap-steps">
+                    <li><i class="fas fa-check-circle"></i> Basics & Setup - 1 week</li>
+                    <li><i class="fas fa-check-circle"></i> Transactions & Constraints - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Keys & Relationships - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Joins, Functions & Operators - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced Queries - 2 weeks</li>
+                    <li><i class="fas fa-check-circle"></i> Grouping & Aggregation - 3 weeks</li>
+                </ul>
+                <a href="sql-roadmap.html" class="view-roadmap">View Full Roadmap →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Condition of use Privacy Notice Your ads privacy choices.</p>
+        <p>© 1996-2025, StudySphere.com, Inc. or its affiliates</p>
+        <p><a href="contact_us.html">Contact Us</a> | <a href="about_us.html">About Us</a></p>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const authButtons = document.getElementById('authButtons');
+            const userProfile = document.getElementById('userProfile');
+            const userWelcome = document.getElementById('userWelcome');
+            const usernameDisplay = document.getElementById('usernameDisplay');
+            const dropdownUsername = document.getElementById('dropdownUsername');
+            const dropdownEmail = document.getElementById('dropdownEmail');
+            const profileIcon = document.getElementById('profileIcon');
+            const profileDropdown = document.getElementById('profileDropdown');
+
+            if (user) {
+                authButtons.style.display = 'none';
+                userProfile.style.display = 'flex';
+                userWelcome.style.display = 'block';
+                usernameDisplay.textContent = user.username;
+                dropdownUsername.textContent = user.username;
+                dropdownEmail.textContent = user.email;
+            }
+
+            // Profile dropdown toggle
+            profileIcon.addEventListener('click', function (e) {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function () {
+                profileDropdown.classList.remove('show');
+            });
+
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function () {
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+  <!-- Update your JavaScript section with this code -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.querySelector('.courses-slides');
+        const cards = document.querySelectorAll('.course-card');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let currentIndex = 0;
+        const cardsPerView = 3;
+        const totalCards = cards.length;
+
+        function updateSlider() {
+            const cardWidth = cards[0].offsetWidth + 30; // width + gap
+            slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateSlider();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateSlider();
+        });
+
+        // Initialize
+        updateSlider();
+        
+        // Handle window resize
+        window.addEventListener('resize', updateSlider);
+    });
+</script>
+</body>
+
+</html>

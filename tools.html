@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySphere - Helpful Online Tools</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #444;
+            font-size: 2.2rem;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-bottom: 1px solid #eee;
+            padding: 1rem;
+            background: white;
+        }
+
+        .tool-content {
+            padding: 1.5rem;
+        }
+
+        .tool-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #3a3a3a;
+        }
+
+        .tool-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .tool-button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">StudySphere</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Helpful Online Tools</h1>
+
+        <!-- Tools Grid -->
+        <div class="tools-grid">
+            <!-- Jupyter Notebook -->
+            <div class="tool-card">
+                <img src="https://jupyter.org/assets/homepage/main-logo.svg" alt="Jupyter Notebook" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Jupyter Notebook</h3>
+                    <p class="tool-description">An open-source web application that allows you to create and share
+                        documents that contain live code, equations, visualizations, and narrative text.</p>
+                    <a href="https://jupyter.org/try" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- FreeCAD -->
+            <div class="tool-card">
+                <img src="Freecad_logo_large.svg" alt="FreeCAD" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">FreeCAD</h3>
+                    <p class="tool-description">A parametric 3D modeler made primarily to design real-life objects of
+                        any size. Parametric modeling allows you to easily modify your design.</p>
+                    <a href="https://www.freecad.org" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Overleaf -->
+            <div class="tool-card">
+                <img src="https://cdn.overleaf.com/img/ol-brand/overleaf_og_logo.png" alt="Overleaf" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Overleaf</h3>
+                    <p class="tool-description">An online LaTeX editor that's easy to use. No installation needed,
+                        real-time collaboration, version control, hundreds of templates, and more.</p>
+                    <a href="https://www.overleaf.com" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Notion -->
+            <div class="tool-card">
+                <img src="https://www.notion.so/cdn-cgi/image/format=auto,width=640,quality=100/front-static/shared/icons/notion-app-icon-3d.png"
+                    alt="Notion" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Notion</h3>
+                    <p class="tool-description">An all-in-one workspace for note-taking, project management, and
+                        collaboration. Organize your work and studies in a customizable way.</p>
+                    <a href="https://www.notion.so" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Desmos -->
+            <div class="tool-card">
+                <img src="8l1kzoyzqyd61.webp" alt="Desmos" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Desmos</h3>
+                    <p class="tool-description">An advanced graphing calculator implemented as a web application. Plot
+                        functions, create tables, add sliders, animate graphs, and more.</p>
+                    <a href="https://www.desmos.com" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Tinkercad Circuits -->
+            <div class="tool-card">
+                <img src="Logo-tinkercad-wordmark.svg.png" alt="Tinkercad Circuits" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Tinkercad Circuits</h3>
+                    <p class="tool-description">A free, online circuit simulator that lets you design and simulate
+                        circuits with Arduino and other components. Perfect for electronics projects.</p>
+                    <a href="https://www.tinkercad.com/circuits" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Replit -->
+            <div class="tool-card">
+                <img src="3c2f2d404a571d2c9fbca934360352698d63433a-1920x900.avif" alt="Replit" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Replit</h3>
+                    <p class="tool-description">An online IDE that supports 50+ programming languages. Code, compile,
+                        run, and host projects directly in your browser with collaborative features.</p>
+                    <a href="https://replit.com" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Grammarly -->
+            <div class="tool-card">
+                <img src="Grammarly-Logo-History-1.png" alt="Grammarly" class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Grammarly</h3>
+                    <p class="tool-description">An AI-powered writing assistant that checks spelling, grammar,
+                        punctuation, clarity, engagement, and delivery mistakes in real-time.</p>
+                    <a href="https://www.grammarly.com" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+
+            <!-- Postman -->
+            <div class="tool-card">
+                <img src="https://voyager.postman.com/logo/postman-logo-icon-orange.svg" alt="Postman"
+                    class="tool-image">
+                <div class="tool-content">
+                    <h3 class="tool-title">Postman</h3>
+                    <p class="tool-description">An API platform for building and using APIs. Simplify each step of the
+                        API lifecycle and streamline collaboration for better APIs.</p>
+                    <a href="https://www.postman.com" class="tool-button" target="_blank">Visit Tool</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
